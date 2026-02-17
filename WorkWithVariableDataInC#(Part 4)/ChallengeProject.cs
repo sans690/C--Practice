@@ -1,4 +1,5 @@
 using System;
+using System.Reflection.PortableExecutable;
 
 class ChallengeProject
 {
@@ -138,10 +139,11 @@ class ChallengeProject
                 case "2":
                     // #1 Display all dogs with a multiple search characteristics
                     string dogCharacteristic = "";
+                    string[] characteristics = new string[] { };
+
 
                     while (dogCharacteristic == "")
                     {
-                        // #2 have user enter multiple comma separated characteristics to search for
                         // Console.WriteLine($"\r\nEnter one desired dog characteristic to search for");
                         // readResult = Console.ReadLine();
                         // if (readResult != null && !readResult.Contains(","))
@@ -150,17 +152,19 @@ class ChallengeProject
                         //     Console.WriteLine();
                         // }
 
+                        // #2 have user enter multiple comma separated characteristics to search for
                         Console.WriteLine($"\r\nEnter dog characteristics to search for separated by commas");
                         readResult = Console.ReadLine();
+
                         if (readResult != null && readResult.Contains(','))
                         {
                             dogCharacteristic = readResult.ToLower().Trim();
                             string searchTerms = dogCharacteristic.Replace(" ", "");
-                            string[] characteristics = searchTerms.Split(',');
+                            characteristics = searchTerms.Split(',');
 
                             for (int i = 0; i < characteristics.Length; i++)
                             {
-                                Console.WriteLine($"{characteristics[i]}");
+                                // Console.WriteLine($"{characteristics[i]}");
                             }
                         }
                     }
@@ -186,7 +190,7 @@ class ChallengeProject
                                 // #5 update "searching" message to show countdown 
                                 foreach (string icon in searchingIcons)
                                 {
-                                    Console.Write($"\rsearching our dog {ourAnimals[i, 3]} for {dogCharacteristic} {icon}");
+                                    Console.Write($"\rsearching our dog {ourAnimals[i, 3]} for {characteristics[i]} {icon}");
                                     Thread.Sleep(250);
                                 }
 
@@ -194,17 +198,31 @@ class ChallengeProject
                             }
 
                             // #3a iterate submitted characteristic terms and search description for each term
-
-                            if (dogDescription.Contains(dogCharacteristic))
+                            foreach (string characteristic in characteristics)
                             {
-                                // #3b update message to reflect term 
-                                // #3c set a flag "this dog" is a match
-                                Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a match!");
+                                if (dogDescription.Contains(characteristic))
+                                {
+                                    // #3b update message to reflect term 
+                                    // #3c set a flag "this dog" is a match
+                                    if (!readResult.Contains(','))
+                                    {
+                                        Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a match!");
+                                    }
 
-                                noMatchesDog = false;
+                                    // #3d if "this dog" is match write match message + dog description
+                                    else if (readResult.Contains(','))
+                                    {
+                                        Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a {characteristic} match!");
+                                    }
+
+                                    else
+                                    {
+                                        noMatchesDog = true;
+                                    }
+
+                                    noMatchesDog = false;
+                                }
                             }
-
-                            // #3d if "this dog" is match write match message + dog description
                         }
                     }
 
