@@ -81,7 +81,6 @@ class ChallengeProject
                     break;
 
             }
-
             ourAnimals[i, 0] = "ID #: " + animalID;
             ourAnimals[i, 1] = "Species: " + animalSpecies;
             ourAnimals[i, 2] = "Age: " + animalAge;
@@ -139,18 +138,11 @@ class ChallengeProject
                 case "2":
                     // #1 Display all dogs with a multiple search characteristics
                     string dogCharacteristic = "";
-                    string[] characteristics = new string[] { };
-
+                    string[] singleCharacteristic = new string[] { };
+                    string[] multiCharacteristics = new string[] { };
 
                     while (dogCharacteristic == "")
                     {
-                        // Console.WriteLine($"\r\nEnter one desired dog characteristic to search for");
-                        // readResult = Console.ReadLine();
-                        // if (readResult != null && !readResult.Contains(","))
-                        // {
-                        //     dogCharacteristic = readResult.ToLower().Trim();
-                        //     Console.WriteLine();
-                        // }
 
                         // #2 have user enter multiple comma separated characteristics to search for
                         Console.WriteLine($"\r\nEnter dog characteristics to search for separated by commas");
@@ -159,16 +151,17 @@ class ChallengeProject
                         if (readResult != null && readResult.Contains(','))
                         {
                             dogCharacteristic = readResult.ToLower().Trim();
-                            string searchTerms = dogCharacteristic.Replace(" ", "");
-                            characteristics = searchTerms.Split(',');
+                            string multiTerm = dogCharacteristic.Replace(" ", "");
+                            multiCharacteristics = multiTerm.Split(',');
+                        }
 
-                            for (int i = 0; i < characteristics.Length; i++)
-                            {
-                                // Console.WriteLine($"{characteristics[i]}");
-                            }
+                        if (readResult != null && !readResult.Contains(','))
+                        {
+                            dogCharacteristic = readResult.ToLower().Trim();
+                            singleCharacteristic = new string[] { dogCharacteristic };
+                            Console.WriteLine();
                         }
                     }
-
                     bool noMatchesDog = true;
                     string dogDescription = "";
 
@@ -178,10 +171,8 @@ class ChallengeProject
                     // loop ourAnimals array to search for matching animals
                     for (int i = 0; i < maxPets; i++)
                     {
-
                         if (ourAnimals[i, 1].Contains("dog"))
                         {
-
                             // Search combined descriptions and report results
                             dogDescription = ourAnimals[i, 4] + "\r\n" + ourAnimals[i, 5];
 
@@ -190,37 +181,41 @@ class ChallengeProject
                                 // #5 update "searching" message to show countdown 
                                 foreach (string icon in searchingIcons)
                                 {
-                                    Console.Write($"\rsearching our dog {ourAnimals[i, 3]} for {characteristics[i]} {icon}");
+                                    Console.Write($"\rsearching our dog {ourAnimals[i, 3]} for {dogCharacteristic} {icon}");
                                     Thread.Sleep(250);
+                                    Console.Write($"\r{new String(' ', Console.BufferWidth)}");
                                 }
-
-                                Console.Write($"\r{new String(' ', Console.BufferWidth)}");
                             }
 
                             // #3a iterate submitted characteristic terms and search description for each term
-                            foreach (string characteristic in characteristics)
+                            bool thisDogIsMatch = false;
+                            string matchedTerm = "";
+                            foreach (string characteristic in multiCharacteristics)
                             {
                                 if (dogDescription.Contains(characteristic))
                                 {
-                                    // #3b update message to reflect term 
-                                    // #3c set a flag "this dog" is a match
-                                    if (!readResult.Contains(','))
-                                    {
-                                        Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a match!");
-                                    }
+                                    thisDogIsMatch = true;
+                                    matchedTerm = characteristic;
+                                    break;
+                                }
+                            }
 
-                                    // #3d if "this dog" is match write match message + dog description
-                                    else if (readResult.Contains(','))
-                                    {
-                                        Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a {characteristic} match!");
-                                    }
+                            if (thisDogIsMatch)
+                            {
+                                noMatchesDog = false;
+                                Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a {matchedTerm} match!");
+                                Console.WriteLine($"{ourAnimals[i, 3]} \n{ourAnimals[i, 4]} \n{ourAnimals[i, 5]}");
+                                continue;
+                            }
 
-                                    else
-                                    {
-                                        noMatchesDog = true;
-                                    }
-
+                            foreach (string characteristic in singleCharacteristic)
+                            {
+                                if (dogDescription.Contains(characteristic))
+                                {
                                     noMatchesDog = false;
+                                    Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a match!");
+                                    Console.WriteLine($"{ourAnimals[i, 3]} \n{ourAnimals[i, 4]} \n{ourAnimals[i, 5]}");
+                                    break;
                                 }
                             }
                         }
@@ -230,7 +225,6 @@ class ChallengeProject
                     {
                         Console.WriteLine("None of our dogs are a match found for: " + dogCharacteristic);
                     }
-
                     Console.WriteLine("\n\rPress the Enter key to continue");
                     readResult = Console.ReadLine();
 
