@@ -180,7 +180,7 @@ class ChallengeProject
                                 // #5 update "searching" message to show countdown 
                                 string[] termToSearch = multiCharacteristics.Length > 0 ? multiCharacteristics : singleCharacteristic;
                                 int countdown = -1; // point to which we should stop
-                                string[] lines = { "| ", "/ ", "\\ " };
+                                string[] lines = { "/ ", "-- ", "\\ ", "* " };
 
                                 foreach (string term in termToSearch)
                                 {
