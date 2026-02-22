@@ -17,7 +17,6 @@ class ChallengeFour
             string lastNameCorporate = corporate[i, 1];
             string emailName = firstNameCorporate.Remove(2).ToLower() + lastNameCorporate.ToLower();
 
-
             if (corporate.OfType<string>().Contains(firstNameCorporate))
             {
                 containsValue = true;
@@ -27,7 +26,7 @@ class ChallengeFour
             {
                 domain = corporateDomain;
             }
-            Console.WriteLine(assignDomain(emailName, domain));
+            Console.WriteLine(AssignDomain(emailName, domain));
         }
 
         for (int i = 0; i < external.GetLength(0); i++)
@@ -45,11 +44,11 @@ class ChallengeFour
             {
                 domain = externalDomain;
             }
-            Console.WriteLine(assignDomain(emailName, domain));
+            Console.WriteLine(AssignDomain(emailName, domain));
         }
     }
 
-    static string assignDomain(string emailName, string domain)
+    static string AssignDomain(string emailName, string domain)
     {
         return $"{emailName}@{domain}";
     }
