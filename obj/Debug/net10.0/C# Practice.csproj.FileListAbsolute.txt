@@ -1,0 +1,5 @@
+/Users/saniyahsmith/C# Practice/obj/Debug/net10.0/C# Practice.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saniyahsmith/C# Practice/obj/Debug/net10.0/C# Practice.AssemblyInfoInputs.cache
+/Users/saniyahsmith/C# Practice/obj/Debug/net10.0/C# Practice.AssemblyInfo.cs
+/Users/saniyahsmith/C# Practice/obj/Debug/net10.0/C# Practice.csproj.CoreCompileInputs.cache
+/Users/saniyahsmith/C# Practice/obj/Debug/net10.0/C# Practice.sourcelink.json
