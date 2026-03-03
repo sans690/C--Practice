@@ -3,3 +3,13 @@
 /Users/saniyahsmith/C# Practice/obj/Debug/net10.0/C# Practice.AssemblyInfo.cs
 /Users/saniyahsmith/C# Practice/obj/Debug/net10.0/C# Practice.csproj.CoreCompileInputs.cache
 /Users/saniyahsmith/C# Practice/obj/Debug/net10.0/C# Practice.sourcelink.json
+/Users/saniyahsmith/C# Practice/bin/Debug/net10.0/C# Practice
+/Users/saniyahsmith/C# Practice/bin/Debug/net10.0/C# Practice.deps.json
+/Users/saniyahsmith/C# Practice/bin/Debug/net10.0/C# Practice.runtimeconfig.json
+/Users/saniyahsmith/C# Practice/bin/Debug/net10.0/C# Practice.dll
+/Users/saniyahsmith/C# Practice/bin/Debug/net10.0/C# Practice.pdb
+/Users/saniyahsmith/C# Practice/obj/Debug/net10.0/C# Practice.dll
+/Users/saniyahsmith/C# Practice/obj/Debug/net10.0/refint/C# Practice.dll
+/Users/saniyahsmith/C# Practice/obj/Debug/net10.0/C# Practice.pdb
+/Users/saniyahsmith/C# Practice/obj/Debug/net10.0/C# Practice.genruntimeconfig.cache
+/Users/saniyahsmith/C# Practice/obj/Debug/net10.0/ref/C# Practice.dll

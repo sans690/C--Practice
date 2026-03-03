@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeTwo
+class WorkVarPart4ChallengeTwo
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         int value1 = 11;
         decimal value2 = 6.2m;

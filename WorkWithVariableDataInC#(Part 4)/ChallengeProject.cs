@@ -1,9 +1,9 @@
 using System;
 using System.Reflection.PortableExecutable;
 
-class ChallengeProject
+class WorkVarPart4ChallengeProject
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
 
         // ourAnimals array will store the following: 

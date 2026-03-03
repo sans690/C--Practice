@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeFour
+class CallMethodsPart2ChallengeFour
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         string originalMessage = "The quick brown fox jumps over the lazy dog.";
         // convert the message into a char array

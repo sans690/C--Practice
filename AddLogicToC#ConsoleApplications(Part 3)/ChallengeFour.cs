@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeFour
+class AddLogicPart3ChallengeFour
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         // SKU = Stock Keeping Unit. 
         // SKU value format: <product #>-<2-letter color code>-<size code>

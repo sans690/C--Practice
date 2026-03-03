@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeThree
+class WorkVarPart4ChallengeThree
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         string sentence = "The quick brown fox jumps over the lazy dog";
         string[] words = sentence.Split(" ");

@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeSix
+class CreateMethodsPart5ChallengeSix
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         Random random = new Random();
 

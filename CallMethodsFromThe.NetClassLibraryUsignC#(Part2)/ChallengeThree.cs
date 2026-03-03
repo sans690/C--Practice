@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeThree
+class CallMethodsPart2ChallengeThree
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         string[] orderIDs = { "B123", "C234", "A345", "C15", "B177", "G3003", "C235", "B179" };
 

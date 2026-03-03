@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeTwo
+class CreateMethodsPart5ChallengeTwo
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         // int a = 3;
         // int b = 4;

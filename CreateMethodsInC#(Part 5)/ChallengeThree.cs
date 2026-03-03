@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeThree
+class CreateMethodsPart5ChallengeThree
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         string[] guestList = { "Rebecca", "Nadia", "Noor", "Jonte" };
         string[] rsvps = new string[10];

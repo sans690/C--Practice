@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeFour
+class CreateMethodsPart5ChallengeFour
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         string[,] corporate = { { "Robert", "Bavin" }, { "Simon", "Bright" }, { "Kim", "Sinclair" }, { "Aashrita", "Kamath" }, { "Sarah", "Delucchi" }, { "Sinan", "Ali" } };
         string[,] external = { { "Vinnie", "Ashton" }, { "Cody", "Dysart" }, { "Shay", "Lawrence" }, { "Daren", "Valdes" } };

@@ -2,7 +2,7 @@ using System;
 
 class GuidedPracticeOne
 {
-    static void Main()
+    public static void Run()
     {
         // initialize variables - graded assignments 
         decimal currentAssignments = 5;

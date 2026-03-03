@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeTwo
+class AddLogicPart3ChallengeTwo
 {
-    static void Main()
+    public static void Run()
     {
         Random coin = new Random();
         int flip = coin.Next(0, 2);

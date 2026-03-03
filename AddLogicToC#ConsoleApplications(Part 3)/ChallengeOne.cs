@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeOne
+class AddLogicPart3ChallengeOne
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         int[] numbers = { 4, 8, 15, 16, 23, 42 };
         int total = 0;

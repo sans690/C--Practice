@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeSix
+class AddLogicPart3ChallengeSix
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         int heroHealth = 10;
         int monsterHealth = 10;

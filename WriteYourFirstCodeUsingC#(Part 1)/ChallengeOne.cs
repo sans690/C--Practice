@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeOne
+class WritePart1ChallengeOne
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         Console.WriteLine("This is the first line.");
         Console.Write("This is ");

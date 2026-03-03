@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeFive
+class CreateMethodsPart5ChallengeFive
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
 
         Console.WriteLine("Generating random numbers:");

@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeEight
+class AddLogicPart3ChallengeEight
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         Console.WriteLine("Enter your role name (Administrator, Manager, or User)");
         bool validRole = false;

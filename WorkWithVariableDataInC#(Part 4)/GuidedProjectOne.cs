@@ -2,7 +2,7 @@ using System;
 
 class GuidedProjectOne
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         // #1 the ourAnimals array will store the following: 
         string animalSpecies = "";

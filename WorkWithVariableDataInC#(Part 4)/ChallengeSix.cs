@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeSix
+class WorkVarPart4ChallengeSix
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
 

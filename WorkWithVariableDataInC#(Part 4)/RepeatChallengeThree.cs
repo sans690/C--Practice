@@ -3,7 +3,7 @@ using System.Text;
 
 class RepeatChallengeThree
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         string pangram = "The quick brown fox jumps over the lazy dog";
         string[] words = pangram.Split(" ");

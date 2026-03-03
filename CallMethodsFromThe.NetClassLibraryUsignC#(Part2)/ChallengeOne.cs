@@ -1,7 +1,7 @@
 using System;
-class ChallengeOne()
+class CallMethodsPart2ChallengeOne()
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         int firstValue = 500;
         int secondValue = 600;

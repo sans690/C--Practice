@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeTwo()
+class CallMethodsPart2ChallengeTwo()
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         Random random = new Random();
         int daysUntilExpiration = random.Next(12);

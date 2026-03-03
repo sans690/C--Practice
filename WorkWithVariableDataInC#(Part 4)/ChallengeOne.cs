@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeOne
+class WorkVarPart4ChallengeOne
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         string[] values = { "12.3", "45", "ABC", "11", "DEF" };
         decimal total = 0m;

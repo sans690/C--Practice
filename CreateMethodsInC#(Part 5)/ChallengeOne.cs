@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeOne
+class CreateMethodsPart5ChallengeOne
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         int[] schedule = { 800, 1200, 1600, 2000 };
         DisplayAdjustedTimes(schedule, 6, -6);
@@ -14,7 +14,7 @@ class ChallengeOne
             {
                 Console.WriteLine("Invalid GMT");
             }
-            else if (newGmt <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0)
+            else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0)
             {
                 diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
             }
@@ -22,11 +22,11 @@ class ChallengeOne
             {
                 diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
             }
-        }
-        for (int i = 0; i < times.Length; i++)
-        {
-            int newTime = (time[i] + diff) % 2400;
-            Console.WriteLine($"{times[i]} -> {newTime}");
+            for (int i = 0; i < times.Length; i++)
+            {
+                int newTime = (times[i] + diff) % 2400;
+                Console.WriteLine($"{times[i]} -> {newTime}");
+            }
         }
     }
 }

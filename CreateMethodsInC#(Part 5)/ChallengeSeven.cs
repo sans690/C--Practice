@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeSeven
+class CreateMethodsPart5ChallengeSeven
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
 
         Random random = new Random();
@@ -48,7 +48,7 @@ class ChallengeSeven
     static bool ShouldPlay()
     {
         // should retrieve user input and determine if the user wants to play again
-        string userInput = Console.ReadLine().Trim().ToLower();
+        string userInput = Console.ReadLine()?.Trim().ToLower() ?? "";
         if (userInput == "y")
         {
             return true;

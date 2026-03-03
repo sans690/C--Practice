@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeThree
+class AddLogicPart3ChallengeThree
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         string permission = "Admin|Manager";
         int level = 53;

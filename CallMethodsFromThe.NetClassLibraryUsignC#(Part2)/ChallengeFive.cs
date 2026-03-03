@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeFive
+class CallMethodsPart2ChallengeFive
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         int currentAssignments = 5;
 

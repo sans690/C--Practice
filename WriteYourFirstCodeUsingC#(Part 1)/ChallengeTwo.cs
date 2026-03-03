@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeTwo()
+class WritePart1ChallengeTwo()
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
      string name = "Bob";
      int number = 3;

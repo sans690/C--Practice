@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeThree
+class WritePart1ChallengeThree
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
     int fahrenheit = 94;
     int step = fahrenheit - 32;

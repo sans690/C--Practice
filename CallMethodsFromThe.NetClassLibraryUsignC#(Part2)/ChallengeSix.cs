@@ -1,3 +1,5 @@
+using System;
+
 /* 
 This C# console application is designed to:
 - Use arrays to store student names and assignment scores.
@@ -19,145 +21,112 @@ This C# console application is designed to:
     Logan:          91.2    A-
 */
 
-
-int examAssignments = 5;
-
-string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
-
-int[] sophiaScores = new int[] { 90, 86, 87, 98, 100, 94, 90 };
-int[] andrewScores = new int[] { 92, 89, 81, 96, 90, 89 };
-int[] emmaScores = new int[] { 90, 85, 87, 98, 68, 89, 89, 89 };
-int[] loganScores = new int[] { 90, 95, 87, 88, 96, 96 };
-
-int[] sophiaExamScores = new int[] { 90, 86, 87, 98, 100 };
-int[] andrewExamScores = new int[] { 92, 89, 81, 96, 90 };
-int[] emmaExamScores = new int[] { 90, 85, 87, 98, 68 };
-int[] loganExamScores = new int[] { 90, 95, 87, 88, 96 };
-
-
-int[] studentExamScores = new int[10];
-int[] studentScores = new int[10];
-
-string currentStudentLetterGrade = "";
-
-// display the header row for scores/grades
-Console.Clear();
-Console.WriteLine("Student\t\tExam Score\tOverall Grade\tExtra Credit\n");
-
-/*
-The outer foreach loop is used to:
-- iterate through student names 
-- assign a student's grades to the studentScores array
-- sum assignment scores (inner foreach loop)
-- calculate numeric and letter grade
-- write the score report information
-*/
-foreach (string name in studentNames)
+class CallMethodsPart2ChallengeSixRunner
 {
-    string currentStudent = name;
-
-    if (currentStudent == "Sophia")
+    public static void Run()
     {
-        studentScores = sophiaScores;
-        studentExamScores = sophiaExamScores;
+        int examAssignments = 5;
+
+        string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
+
+        int[] sophiaScores = new int[] { 90, 86, 87, 98, 100, 94, 90 };
+        int[] andrewScores = new int[] { 92, 89, 81, 96, 90, 89 };
+        int[] emmaScores = new int[] { 90, 85, 87, 98, 68, 89, 89, 89 };
+        int[] loganScores = new int[] { 90, 95, 87, 88, 96, 96 };
+
+        int[] sophiaExamScores = new int[] { 90, 86, 87, 98, 100 };
+        int[] andrewExamScores = new int[] { 92, 89, 81, 96, 90 };
+        int[] emmaExamScores = new int[] { 90, 85, 87, 98, 68 };
+        int[] loganExamScores = new int[] { 90, 95, 87, 88, 96 };
+
+        int[] studentExamScores = new int[10];
+        int[] studentScores = new int[10];
+
+        string currentStudentLetterGrade = "";
+
+        Console.Clear();
+        Console.WriteLine("Student\t\tExam Score\tOverall Grade\tExtra Credit\n");
+
+        foreach (string name in studentNames)
+        {
+            string currentStudent = name;
+
+            if (currentStudent == "Sophia")
+            {
+                studentScores = sophiaScores;
+                studentExamScores = sophiaExamScores;
+            }
+            else if (currentStudent == "Andrew")
+            {
+                studentScores = andrewScores;
+                studentExamScores = andrewExamScores;
+            }
+            else if (currentStudent == "Emma")
+            {
+                studentScores = emmaScores;
+                studentExamScores = emmaExamScores;
+            }
+            else if (currentStudent == "Logan")
+            {
+                studentScores = loganScores;
+                studentExamScores = loganExamScores;
+            }
+
+            int sumAssignmentScores = 0;
+            int gradedAssignments = 0;
+            int sumExamScores = 0;
+
+            foreach (int score in studentExamScores)
+            {
+                sumExamScores += score;
+            }
+
+            decimal currentStudentExamGrade = (decimal)sumExamScores / examAssignments;
+
+            foreach (int score in studentScores)
+            {
+                gradedAssignments += 1;
+
+                if (gradedAssignments <= examAssignments)
+                    sumAssignmentScores += score;
+                else
+                    sumAssignmentScores += score / 10;
+            }
+
+            decimal currentStudentGrade = (decimal)sumAssignmentScores / examAssignments;
+
+            if (currentStudentGrade >= 97)
+                currentStudentLetterGrade = "A+";
+            else if (currentStudentGrade >= 93)
+                currentStudentLetterGrade = "A";
+            else if (currentStudentGrade >= 90)
+                currentStudentLetterGrade = "A-";
+            else if (currentStudentGrade >= 87)
+                currentStudentLetterGrade = "B+";
+            else if (currentStudentGrade >= 83)
+                currentStudentLetterGrade = "B";
+            else if (currentStudentGrade >= 80)
+                currentStudentLetterGrade = "B-";
+            else if (currentStudentGrade >= 77)
+                currentStudentLetterGrade = "C+";
+            else if (currentStudentGrade >= 73)
+                currentStudentLetterGrade = "C";
+            else if (currentStudentGrade >= 70)
+                currentStudentLetterGrade = "C-";
+            else if (currentStudentGrade >= 67)
+                currentStudentLetterGrade = "D+";
+            else if (currentStudentGrade >= 63)
+                currentStudentLetterGrade = "D";
+            else if (currentStudentGrade >= 60)
+                currentStudentLetterGrade = "D-";
+            else
+                currentStudentLetterGrade = "F";
+
+            decimal extraCredit = currentStudentGrade - currentStudentExamGrade;
+            Console.WriteLine($"{currentStudent}\t\t{currentStudentExamGrade}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}\t({extraCredit} pts)");
+        }
+
+        Console.WriteLine("\n\rPress the Enter key to continue");
+        Console.ReadLine();
     }
-
-    else if (currentStudent == "Andrew")
-    {
-        studentScores = andrewScores;
-        studentExamScores = andrewExamScores;
-    }
-
-    else if (currentStudent == "Emma")
-    {
-        studentScores = emmaScores;
-        studentExamScores = emmaExamScores;
-    }
-
-    else if (currentStudent == "Logan")
-    {
-        studentScores = loganScores;
-        studentExamScores = loganExamScores;
-    }
-
-    int sumAssignmentScores = 0;
-
-    int gradedAssignments = 0;
-
-    int sumExamScores = 0;
-
-    foreach (int score in studentExamScores)
-    {
-        sumExamScores += score;
-    }
-    decimal currentStudentExamGrade = (decimal)sumExamScores / examAssignments;
-
-
-    /* 
-    the inner foreach loop sums assignment scores
-    extra credit assignments are worth 10% of an exam score
-    */
-    foreach (int score in studentScores)
-    {
-        gradedAssignments += 1;
-
-        if (gradedAssignments <= examAssignments)
-            sumAssignmentScores += score;
-
-        else
-            sumAssignmentScores += score / 10;
-
-    }
-
-    decimal currentStudentGrade = (decimal)(sumAssignmentScores) / examAssignments;
-
-
-    if (currentStudentGrade >= 97)
-        currentStudentLetterGrade = "A+";
-
-    else if (currentStudentGrade >= 93)
-        currentStudentLetterGrade = "A";
-
-    else if (currentStudentGrade >= 90)
-        currentStudentLetterGrade = "A-";
-
-    else if (currentStudentGrade >= 87)
-        currentStudentLetterGrade = "B+";
-
-    else if (currentStudentGrade >= 83)
-        currentStudentLetterGrade = "B";
-
-    else if (currentStudentGrade >= 80)
-        currentStudentLetterGrade = "B-";
-
-    else if (currentStudentGrade >= 77)
-        currentStudentLetterGrade = "C+";
-
-    else if (currentStudentGrade >= 73)
-        currentStudentLetterGrade = "C";
-
-    else if (currentStudentGrade >= 70)
-        currentStudentLetterGrade = "C-";
-
-    else if (currentStudentGrade >= 67)
-        currentStudentLetterGrade = "D+";
-
-    else if (currentStudentGrade >= 63)
-        currentStudentLetterGrade = "D";
-
-    else if (currentStudentGrade >= 60)
-        currentStudentLetterGrade = "D-";
-
-    else
-        currentStudentLetterGrade = "F";
-
-    // Student         Grade
-    // Sophia:         92.2    A-
-
-    decimal extraCredit = currentStudentGrade - currentStudentExamGrade;
-    Console.WriteLine($"{currentStudent}\t\t{currentStudentExamGrade}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}\t({extraCredit} pts)");
 }
-
-// required for running in VS Code (keeps the Output windows open to view results)
-Console.WriteLine("\n\rPress the Enter key to continue");
-Console.ReadLine();

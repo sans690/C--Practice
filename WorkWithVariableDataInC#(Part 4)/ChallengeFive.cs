@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeSeven
+class WorkVarPart4ChallengeSeven
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         string customerName = "Ms. Barros";
         string currentProduct = "Magic Yield";

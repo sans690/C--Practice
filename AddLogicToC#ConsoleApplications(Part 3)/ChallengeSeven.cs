@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeSeven
+class AddLogicPart3ChallengeSeven
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         int numberResult;
         bool validNumber = false;

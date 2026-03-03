@@ -1,8 +1,8 @@
 using System;
 
-class ChallengeFive
+class AddLogicPart3ChallengeFive
 {
-    static void Main(string[] args)
+    public static void Run(string[] args)
     {
         for (int i = 1; i < 101; i++)
         {
