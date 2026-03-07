@@ -11,14 +11,6 @@ class DebugApplicationPart6ChallengeFive
         Console.Write("Enter the upper bound: ");
         int upperBound = int.Parse(Console.ReadLine());
 
-        decimal averageValue = 0;
-
-        // Display the value returned by AverageOfEvenNumbers in the console
-        Console.WriteLine($"The average of even numbers between {lowerBound} and {upperBound} is {averageValue}.");
-
-        // Wait for user input
-        Console.ReadLine();
-
         bool exit = false;
 
         do
@@ -26,7 +18,7 @@ class DebugApplicationPart6ChallengeFive
             try
             {
                 // Calculate the sum of the even numbers between the bounds
-                averageValue = AverageOfEvenNumbers(lowerBound, upperBound);
+                decimal averageValue = AverageOfEvenNumbers(lowerBound, upperBound);
 
                 // Display the result to the user
                 Console.WriteLine($"The average of even numbers between {lowerBound} and {upperBound} is {averageValue}.");
