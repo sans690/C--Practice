@@ -5,6 +5,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        DebugApplicationPart6ChallengeSix.Run(args);
+        DebugApplicationPart6ChallengeSeven.Run(args);
     }
 }
