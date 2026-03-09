@@ -85,16 +85,16 @@ class DebugApplicationPart6ChallengeSeven
             try
             {
                 MakeChange(itemCost, cashTill, paymentTwenties, paymentTens, paymentFives, paymentOnes);
-                Console.WriteLine($"Transaction successfully completed.");
                 registerCheckTillTotal += itemCost;
-                Console.WriteLine(TillAmountSummary(cashTill));
-                Console.WriteLine($"Expected till value: {registerCheckTillTotal}\n\r");
-                Console.WriteLine();
             }
             catch (InvalidOperationException ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine($"Could not complete transaction: {ex.Message}");
             }
+            
+            Console.WriteLine(TillAmountSummary(cashTill));
+            Console.WriteLine($"Expected till value: {registerCheckTillTotal}\n\r");
+            Console.WriteLine();
         }
 
         Console.WriteLine("Press the Enter key to exit");
@@ -125,7 +125,7 @@ class DebugApplicationPart6ChallengeSeven
             int changeNeeded = amountPaid - cost;
 
             if (changeNeeded < 0)
-                throw new InvalidOperationException("Could not complete transaction: InvalidOperationException: Not enough money provided to complete the transaction.");
+                throw new InvalidOperationException("InvalidOperationException: Not enough money provided to complete the transaction.");
 
             Console.WriteLine("Cashier Returns:");
 
@@ -158,7 +158,7 @@ class DebugApplicationPart6ChallengeSeven
             }
 
             if (changeNeeded > 0)
-                throw new InvalidOperationException("Could not complete transaction: InvalidOperationException: The till is unable to make the correct change.");
+                throw new InvalidOperationException("InvalidOperationException: The till is unable to make the correct change.");
         }
 
         static void LogTillStatus(int[] cashTill)
