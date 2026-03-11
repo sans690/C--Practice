@@ -87,10 +87,13 @@ expected.
             try
             {
                 // MakeChange manages the transaction and updates the till 
-                MakeChange(itemCost, cashTill, paymentTwenties, paymentTens, paymentFives, paymentOnes);
+                bool canPay = MakeChange(itemCost, cashTill, paymentTwenties, paymentTens, paymentFives, paymentOnes);
 
-                // Backup Calculation - each transaction adds current "itemCost" to the till
-                registerCheckTillTotal += itemCost;
+                if (canPay)
+                {
+                    // Backup Calculation - each transaction adds current "itemCost" to the till
+                    registerCheckTillTotal += itemCost;
+                }
             }
             catch (InvalidOperationException e)
             {
@@ -119,18 +122,26 @@ expected.
         }
 
 
-        static void MakeChange(int cost, int[] cashTill, int twenties, int tens = 0, int fives = 0, int ones = 0)
+        static bool MakeChange(int cost, int[] cashTill, int twenties, int tens = 0, int fives = 0, int ones = 0)
         {
+            int amountPaid = twenties * 20 + tens * 10 + fives * 5 + ones;
+            int changeNeeded = amountPaid - cost;
+
+            // didn't know that this had to be moved up to ensure that we basically skip transactions that can't be done, so the till remains the same for money that we can't take
+            if (changeNeeded < 0)
+            {
+                throw new InvalidOperationException("InvalidOperationException: Not enough money provided to complete the transaction.");
+            }
+            // originally had it below the two sections, but this causes the update to happen before the condition, so a change happens anyway then the throw
+            int originalOnes = cashTill[0];
+            int originalFives = cashTill[1];
+            int originalTens = cashTill[2];
+            int originalTwenties = cashTill[3];
+
             cashTill[3] += twenties;
             cashTill[2] += tens;
             cashTill[1] += fives;
             cashTill[0] += ones;
-
-            int amountPaid = twenties * 20 + tens * 10 + fives * 5 + ones;
-            int changeNeeded = amountPaid - cost;
-
-            if (changeNeeded < 0)
-                throw new InvalidOperationException("InvalidOperationException: Not enough money provided to complete the transaction.");
 
             Console.WriteLine("Cashier prepares the following change:");
 
@@ -162,8 +173,15 @@ expected.
                 Console.WriteLine("\t A one");
             }
 
-            if (changeNeeded > 0)
+            if (changeNeeded > 0){
+                cashTill[0] = originalOnes;
+                cashTill[1] = originalFives;
+                cashTill[2] = originalTens;
+                cashTill[3] = originalTwenties;
+
                 throw new InvalidOperationException("InvalidOperationException: The till is unable to make change for the cash provided.");
+            }
+            return true;
         }
 
         static void LogTillStatus(int[] cashTill)
@@ -181,5 +199,6 @@ expected.
             return $"The till has {cashTill[3] * 20 + cashTill[2] * 10 + cashTill[1] * 5 + cashTill[0]} dollars";
 
         }
+
     }
 }
